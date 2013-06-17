@@ -1,0 +1,12 @@
+{
+  "name": "sway-youtube-resolver",
+  "description": "Attach youtube URIs to a given track",
+  "version": "1.0.0",
+  "author": "Jordan Feldstein <jordan@sway.fm>",
+  "dependencies": {
+    "youtube-feeds": "*",
+    "sequelize": "*",
+    "sqlite3": "*"
+  },
+  "engine": "node >= 0.8.15"
+}
