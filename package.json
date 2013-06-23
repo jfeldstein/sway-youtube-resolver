@@ -7,7 +7,8 @@
     "youtube-feeds": "*",
     "sequelize": "*",
     "sqlite3": "*",
-    "rabbit.js": "*"
+    "rabbit.js": "*",
+    "coffee-script":"*"
   },
   "engine": "node >= 0.8.15"
 }
