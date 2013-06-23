@@ -1,0 +1,3 @@
+
+# Sway-specific Environment Variables
+export CLOUDAMQP_URL=amqp://sptdazrt:KUdUJgN6fgDsrYbG2FOKRchhtaKqsdxa@lemur.cloudamqp.com/sptdazrt

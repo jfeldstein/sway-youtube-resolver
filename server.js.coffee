@@ -1,5 +1,5 @@
 # Defaults and hooligans
-amqp_url = 'amqp://localhost'
+amqp_url = process.env.CLOUDAMQP_URL
 
 # Load some shit up
 db = require './database.js.coffee'
