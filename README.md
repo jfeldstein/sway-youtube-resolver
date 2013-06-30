@@ -7,4 +7,4 @@ Turns artist / track combos into youtube urls and passes the video IDs back. Sho
 ## Developing:
 1. Have RVM, so that .rvmrc is run. 
 2. `npm install`
-3. Start server with: `COULDAMQP_URL=amqp:// coffee server.js.coffee`
+3. Start server with: `CLOUDAMQP_URL=amqp:// coffee server.js.coffee`
