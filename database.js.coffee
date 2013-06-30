@@ -10,6 +10,7 @@ if process.env.HEROKU_POSTGRESQL_ONYX_URL
     port:     match[4]
     host:     match[3]
     logging:  true #false
+    underscored: true
 else
   # the application is executed on the local machine ... use mysql
   sequelize = new Sequelize "sway", "root", null,
