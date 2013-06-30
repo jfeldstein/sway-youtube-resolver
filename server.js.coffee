@@ -15,6 +15,8 @@ youtubizeThisTrack = (track) ->
     'max-results':  1
     ,
     (err, result) ->
+      console.error err if err?
+      return if err? or not result.items?
       video = result.items[0]
       track.uri = "http://www.youtube.com/watch?v=" + video.id
       track.save()
