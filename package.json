@@ -6,9 +6,12 @@
   "dependencies": {
     "youtube-feeds": "*",
     "sequelize": "*",
-    "sqlite3": "*",
     "rabbit.js": "*",
-    "coffee-script":"*"
+    "coffee-script":"*",
+    "pg":"*"
+  },
+  "devDependencies": {
+    "sqlite3": "*"
   },
   "engine": "node >= 0.8.15"
 }
