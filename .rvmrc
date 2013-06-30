@@ -1,6 +1,6 @@
 
 # Sway-specific Environment Variables
-export CLOUDAMQP_URL=amqp://sptdazrt:KUdUJgN6fgDsrYbG2FOKRchhtaKqsdxa@lemur.cloudamqp.com/sptdazrt
+export CLOUDAMQP_URL=amqp://iwalysbz:W2Hb5JSdMjUKSj948va8_VxZyELBSnEL@lemur.cloudamqp.com/iwalysbz
 
 # Needed to avoid "Too many files open" during `npm install`
 ulimit -n 1000
