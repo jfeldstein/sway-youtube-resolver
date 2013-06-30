@@ -12,3 +12,5 @@ logs
 results
 
 npm-debug.log
+database.sqlite
+node_modules

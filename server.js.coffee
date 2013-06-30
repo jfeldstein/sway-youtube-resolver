@@ -2,12 +2,14 @@
 amqp_url = process.env.CLOUDAMQP_URL
 
 # Load some shit up
-db = require './database.js.coffee'
+db      = require './database.js.coffee'
+Step    = require './lib/step.js'
 youtube = require 'youtube-feeds'
-context = require('rabbit.js').createContext(amqp_url)
+
 
 # This gives us the youtube url and puts in in the track
 youtubizeThisTrack = (track) ->
+  #console.log "TRACK TO YOUTUBIZE", track
   youtube.feeds.videos
     q: track.title + " " + track.artist
     'max-results':  1
@@ -18,12 +20,19 @@ youtubizeThisTrack = (track) ->
       track.save()
 
 
-# Connect and listen to rabbitMQ, 
-# trigger the resolution when we get a track ID as instruction
+console.log("ATTEMPTING TO RABBIT TO", amqp_url)
 context = require('rabbit.js').createContext(amqp_url)
-pull = context.socket('PULL')
-pull.connect('youtube-resolves')
-pull.setEncoding('utf8')
-pull.on 'data', (id) ->
-  track = db.Track.find id
-  youtubeizeThisTrack track
+context.on 'ready', -> 
+  console.log "RABBIT READY"
+  pull = context.socket('PULL')
+  pull.setEncoding('utf8')
+  pull.connect 'youtube-resolves', ->
+    console.log "RABBIT CONNECTED"
+    pull.on 'data', (id) ->
+      #console.log "GOT DATA", arguments
+      db.Track.find(id).success (track) ->
+        youtubizeThisTrack track if track?
+
+
+
+
