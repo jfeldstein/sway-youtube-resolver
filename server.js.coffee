@@ -31,7 +31,7 @@ context.on 'ready', ->
     pull.on 'data', (id) ->
       #console.log "GOT DATA", arguments
       db.Track.find(id).success (track) ->
-        youtubizeThisTrack track if track?
+        if track? then youtubizeThisTrack track else console.error("TRACK NOT FOUND", id)
 
 
 
