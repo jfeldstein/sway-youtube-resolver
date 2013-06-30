@@ -10,8 +10,8 @@ if process.env.HEROKU_POSTGRESQL_ONYX_URL
     port:     match[4]
     host:     match[3]
     logging:  true #false
-    underscored: true
-    underscore: true
+    define:
+      underscored: true
 else
   # the application is executed on the local machine ... use mysql
   sequelize = new Sequelize "sway", "root", null,
@@ -19,6 +19,8 @@ else
     #sync: { force: true }
     underscored: true
     storage: './database.sqlite'
+    define:
+      underscored: true
 
 
 Track = sequelize.define 'track', 
