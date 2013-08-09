@@ -15,10 +15,12 @@ if process.env.HEROKU_POSTGRESQL_ONYX_URL
 else
   # the application is executed on the local machine ... use mysql
   sequelize = new Sequelize "sway", "root", null,
+    # Needs to point to your rails's development db, as configed in ../sway-backend/config/database.yml 
+    # Also expects that rails is at ../sway-backend/
+    storage: '../sway-backend/db/development.sqlite3'
     dialect: 'sqlite'
     #sync: { force: true }
     underscored: true
-    storage: './database.sqlite'
     define:
       underscored: true
 
